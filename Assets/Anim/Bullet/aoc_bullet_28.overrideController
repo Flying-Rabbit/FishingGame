@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: aoc_bullet_28
+  m_Controller: {fileID: 9100000, guid: 432b5f0ce9c5d6d4d8d44742b1d14958, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a2b12ad568f1cd24b87457d493cea30d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e47a86c8fdf2c2244bce9f21a2ce3630, type: 2}
