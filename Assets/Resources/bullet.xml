@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<setting>
+  <bullet id="0" level="0" damage="5" cost="5"></bullet>
+  <bullet id="1" level="1" damage="10" cost="10"></bullet>
+  <bullet id="2" level="2" damage="20" cost="20"></bullet>
+  <bullet id="3" level="3" damage="30" cost="30"></bullet>
+  <bullet id="4" level="4" damage="40" cost="40"></bullet>
+  <bullet id="5" level="5" damage="50" cost="50"></bullet>
+  <bullet id="6" level="6" damage="60" cost="60"></bullet>
+  <bullet id="7" level="7" damage="70" cost="70"></bullet>
+  <bullet id="8" level="8" damage="80" cost="80"></bullet>
+  <bullet id="9" level="9" damage="90" cost="90"></bullet>
+  <bullet id="10" level="10" damage="100" cost="100"></bullet>
+  <bullet id="11" level="11" damage="200" cost="200"></bullet>
+  <bullet id="12" level="12" damage="300" cost="300"></bullet>
+  <bullet id="13" level="13" damage="400" cost="400"></bullet>
+  <bullet id="14" level="14" damage="500" cost="500"></bullet>
+  <bullet id="15" level="15" damage="600" cost="600"></bullet>
+  <bullet id="16" level="16" damage="700" cost="700"></bullet>
+  <bullet id="17" level="17" damage="800" cost="800"></bullet>
+  <bullet id="18" level="18" damage="900" cost="900"></bullet>
+  <bullet id="19" level="19" damage="1000" cost="1000"></bullet>  
+</setting>

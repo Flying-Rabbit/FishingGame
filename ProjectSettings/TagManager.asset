@@ -8,6 +8,7 @@ TagManager:
   - fish
   - border
   - goldboard
+  - web
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bg
+    uniqueID: 4076237333
+    locked: 0
+  - name: SpriteLayer
+    uniqueID: 388811031
+    locked: 0
+  - name: MyUI
+    uniqueID: 2615952905
+    locked: 0
+  - name: Gun
+    uniqueID: 3828146669
     locked: 0

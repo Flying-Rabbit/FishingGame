@@ -2,19 +2,24 @@
 
 public class Bullet : MonoBehaviour
 {
-    private float speed = 5f; 
-    public int Demage { get; set; }
+    private float speed = 5f;
+    private Border border;
+    public int Damage { get; set; }
+
+    private void Start()
+    {
+        border = Border.Instance;
+    }
 
     private void Update()
     {
         transform.position += transform.up * Time.deltaTime * speed;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("border"))
+        if (!border.IsInside(transform.position))
         {
             Destroy(gameObject);
-        }
+        }           
     }
+
+    
+
 }

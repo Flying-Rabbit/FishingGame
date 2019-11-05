@@ -66,13 +66,22 @@
     <Compile Include="Assets\Scripts\Effects\Ef_Destroy.cs" />
     <Compile Include="Assets\Scripts\Effects\Ef_SwithSprite.cs" />
     <Compile Include="Assets\Scripts\Effects\Ef_Wave.cs" />
+    <Compile Include="Assets\Scripts\Game\Border.cs" />
     <Compile Include="Assets\Scripts\Game\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Game\Coin.cs" />
+    <Compile Include="Assets\Scripts\Game\Core\GameData.cs" />
+    <Compile Include="Assets\Scripts\Game\Core\GameManager.cs" />
     <Compile Include="Assets\Scripts\Game\Fish.cs" />
     <Compile Include="Assets\Scripts\Game\FishManager.cs" />
+    <Compile Include="Assets\Scripts\Game\FishWeb.cs" />
     <Compile Include="Assets\Scripts\Game\Gun.cs" />
     <Compile Include="Assets\Scripts\Start\GameStart.cs" />
+    <Compile Include="Assets\Scripts\test\testScr.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Resources\hero.xml" />
+    <None Include="Assets\Resources\fish.xml" />
+    <None Include="Assets\Resources\bullet.xml" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
@@ -90,37 +99,37 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>F:/Unity2019Works/FishingGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>F:/UnityAPlanClass/FishingGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/2019.2.9f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<setting>
+	<fish Id="0" Name="caiyun" HP="100" Exp="80" Gold="60" MaxNum="6" MaxSpeed="5"></fish>
+	<fish Id="1" Name="ciweiyu" HP="50" Exp="30" Gold="30" MaxNum="7" MaxSpeed="6"></fish>
+	<fish Id="2" Name="dayanjingyu" HP="50" Exp="30" Gold="30" MaxNum="7" MaxSpeed="6"></fish>
+	<fish Id="3" Name="denglongyu" HP="100" Exp="80" Gold="60" MaxNum="6" MaxSpeed="5"></fish>
+	<fish Id="4" Name="hudieyu" HP="500" Exp="350" Gold="300" MaxNum="3" MaxSpeed="4"></fish>
+	<fish Id="5" Name="jinsha" HP="1500" Exp="1500" Gold="1000" MaxNum="1" MaxSpeed="5"></fish>
+	<fish Id="6" Name="kongqueyu" HP="50" Exp="30" Gold="30" MaxNum="7" MaxSpeed="6"></fish>
+	<fish Id="7" Name="moguiyu" HP="500" Exp="350" Gold="300" MaxNum="3" MaxSpeed="4"></fish>
+	<fish Id="8" Name="qiangyu" HP="100" Exp="80" Gold="60" MaxNum="6" MaxSpeed="5"></fish>
+	<fish Id="9" Name="shenxianyu" HP="100" Exp="80" Gold="60" MaxNum="6" MaxSpeed="5"></fish>
+	<fish Id="10" Name="shibanyu" HP="100" Exp="80" Gold="60" MaxNum="6" MaxSpeed="5"></fish>
+	<fish Id="11" Name="wugui" HP="50" Exp="30" Gold="30" MaxNum="7" MaxSpeed="6"></fish>
+	<fish Id="12" Name="xiaocouyu" HP="5" Exp="10" Gold="5" MaxNum="20" MaxSpeed="8"></fish>
+	<fish Id="13" Name="xiaohuangyu" HP="5" Exp="10" Gold="5" MaxNum="20" MaxSpeed="8"></fish>
+	<fish Id="14" Name="xiaolanyu" HP="5" Exp="10" Gold="5" MaxNum="20" MaxSpeed="8"></fish>
+	<fish Id="15" Name="xiaoqingyu" HP="5" Exp="10" Gold="5" MaxNum="20" MaxSpeed="8"></fish>
+	<fish Id="16" Name="xishuaiyu" HP="500" Exp="350" Gold="300" MaxNum="3" MaxSpeed="4"></fish>
+	<fish Id="17" Name="yinsha" HP="1000" Exp="800" Gold="800" MaxNum="2" MaxSpeed="3"></fish>	
+</setting>
