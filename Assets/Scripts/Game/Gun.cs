@@ -1,35 +1,107 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Gun : MonoBehaviour
 {
-    private const float SHOTCD = 0.2f;
-    private Transform gunTrans;  //当前枪
-    public Transform bulletSpawn; //当前子弹的生成点
-    public GameObject bulletPrefab;  //子弹
-    private Camera cameraMain;
-    private Transform[] gunModels;
-
-    public Action<int> BulletCostChangeDeleget; //子弹价格变化事件
-    public Action<GameObject> BulletPrefabChangeDelegate; //子弹预制体变化事件
-
-    private void Start()
+    public static Gun Instance;
+    private void Awake()
     {
-        cameraMain = Camera.main;
-        gunTrans = transform;
-        gunModels = new Transform[transform.childCount];
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            gunModels[i] = transform.GetChild(i);            
-        }
+        Instance = this;
+        LoadGunData();
     }
 
-    void ChangeGunModelByIndex(int index)
-    { 
+
+    private GunModel[] gunData;
+    void LoadGunData()
+    {
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.LoadXml(Resources.Load("gun").ToString());
+        XmlNodeList nodeList = xmlDoc.DocumentElement.GetElementsByTagName("gun");
+
+        gunData = new GunModel[nodeList.Count];
+
+        for (int i = 0; i < nodeList.Count; i++)
+        {
+           gunData[i] = new GunModel();
+           gunData[i].ID = int.Parse(nodeList[i].Attributes["id"].Value);
+           gunData[i].Type = int.Parse(nodeList[i].Attributes["type"].Value);
+           gunData[i].BulletID = int.Parse(nodeList[i].Attributes["bulletid"].Value);
+           gunData[i].DamageRate = float.Parse(nodeList[i].Attributes["damageRate"].Value);
+           gunData[i].BulletData = BulletData.Instance.GetBullet(gunData[i].BulletID);
+        }
         
+    }    
+
+    private const float SHOTCD = 0.2f;
+    private Transform gunTrans;    
+    private Camera cameraMain;
+    private Transform[] gunModelTrans;
+    private Transform[] bulletSpawnTrans;
+
+    private GunModel currentGunData; //当前的枪的数据
+    private Transform currenBulletSpawnTrans; //当前枪发射子弹初始Transform
+    private int currentGunID;  
+    
+
+    private void Start()
+    {     
+        gunTrans = transform;
+        cameraMain = Camera.main;
+        gunModelTrans = new Transform[transform.childCount];
+        bulletSpawnTrans = new Transform[gunModelTrans.Length];
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            gunModelTrans[i] = transform.GetChild(i);
+            bulletSpawnTrans[i] = gunModelTrans[i].Find("BulletPos");
+            gunModelTrans[i].gameObject.SetActive(false);
+        }
+
+        currentGunID = 0;
+        InitGunByIndex(currentGunID);
+        
+    }
+
+    void InitGunByIndex(int gunID)
+    {
+        //缓存当前枪的数据
+        currentGunData = gunData[gunID];
+        int gunType = currentGunData.Type;
+        
+        //设置当前需要显示的枪模型
+        for (int i = 0; i < gunModelTrans.Length; i++)
+        {
+            gunModelTrans[i].gameObject.SetActive(i == gunType);
+        }
+
+        //缓存当前子弹初始Transform
+        currenBulletSpawnTrans = bulletSpawnTrans[gunType];
+    }
+
+    public void GunLevelUp()
+    {
+        currentGunID += 1;
+        if (currentGunID >= gunData.Length)
+        {
+            currentGunID = gunData.Length - 1;
+        }
+        InitGunByIndex(currentGunID);
+    }
+
+    public void GunLevelDown()
+    {
+        currentGunID -= 1;
+        if (currentGunID < 0)
+        {
+            currentGunID = 0;
+        }
+        InitGunByIndex(currentGunID);
+    }
+
+    public int GetBulletCost()
+    {
+        return currentGunData.BulletData.Cost;
     }
 
     //朝向点击位置
@@ -52,12 +124,19 @@ public class Gun : MonoBehaviour
             return;
         isCooling = true;
 
-        if (bulletPrefab != null)
+        if (GameManager.Instance.DecreaseCoins(currentGunData.BulletData.Cost))
         {
-            newBullet = Instantiate(bulletPrefab);
-            newBullet.transform.position = bulletSpawn.position;
-            newBullet.transform.rotation = bulletSpawn.rotation;       
-        }
+            GameObject bulletPrefab = currentGunData.BulletData.BulletPrefab;
+            if (bulletPrefab != null)
+            {
+                newBullet = Instantiate(bulletPrefab);
+                newBullet.transform.position = currenBulletSpawnTrans.position;
+                newBullet.transform.rotation = currenBulletSpawnTrans.rotation;
+                newBullet.GetComponent<Bullet>().Damage = (int)(currentGunData.DamageRate * currentGunData.BulletData.Damage);
+                Debug.Log("该子弹的伤害值为：" + newBullet.GetComponent<Bullet>().Damage);
+                AudioManager.Instance.PlayAudio(ACName.Fire);
+            }
+        }       
     }
 
     float timer = 0f;
@@ -99,4 +178,13 @@ public class Gun : MonoBehaviour
             isCooling = false;
         }
     }
+}
+
+public class GunModel
+{
+    public int ID;
+    public int Type;
+    public int BulletID;
+    public float DamageRate;
+    public BulletModel BulletData;
 }

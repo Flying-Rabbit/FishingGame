@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<setting>
+  <gun id="0" type="0" bulletid="0" damageRate="1.0"></gun>
+  <gun id="1" type="0" bulletid="1" damageRate="1.0"></gun>
+  <gun id="2" type="0" bulletid="2" damageRate="1.0"></gun>
+  <gun id="3" type="0" bulletid="3" damageRate="1.0"></gun>
+  <gun id="4" type="1" bulletid="4" damageRate="1.2"></gun>
+  <gun id="5" type="1" bulletid="5" damageRate="1.2"></gun>
+  <gun id="6" type="1" bulletid="6" damageRate="1.2"></gun>
+  <gun id="7" type="1" bulletid="7" damageRate="1.2"></gun>
+  <gun id="8" type="2" bulletid="8" damageRate="1.4"></gun>
+  <gun id="9" type="2" bulletid="9" damageRate="1.4"></gun>
+  <gun id="10" type="2" bulletid="10" damageRate="1.4"></gun>
+  <gun id="11" type="2" bulletid="11" damageRate="1.4"></gun>
+  <gun id="12" type="3" bulletid="12" damageRate="1.6"></gun>
+  <gun id="13" type="3" bulletid="13" damageRate="1.6"></gun>
+  <gun id="14" type="3" bulletid="14" damageRate="1.6"></gun>
+  <gun id="15" type="3" bulletid="15" damageRate="1.6"></gun>
+  <gun id="16" type="4" bulletid="16" damageRate="2.0"></gun>
+  <gun id="17" type="4" bulletid="17" damageRate="2.0"></gun>
+  <gun id="18" type="4" bulletid="18" damageRate="2.0"></gun>
+  <gun id="19" type="4" bulletid="19" damageRate="2.0"></gun> 
+</setting>

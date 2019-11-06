@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ public class FishManager : MonoBehaviour
         LoadFishData();
         BigCoinsPrefab = Resources.Load<GameObject>("Coins/bigCoin");
         GoldCoinsPrefab = Resources.Load<GameObject>("Coins/gold");
-        SilverCoinsPrefab = Resources.Load<GameObject>("Coins/silver");
+        SilverCoinsPrefab = Resources.Load<GameObject>("Coins/silver");        
     }
 
     private void Start()

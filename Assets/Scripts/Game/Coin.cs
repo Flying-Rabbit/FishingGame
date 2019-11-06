@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
@@ -18,10 +17,20 @@ public class Coin : MonoBehaviour
         while (true)
         {
             yield return null;
-            Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime);
-            if (Mathf.Approximately(targetPos.x, transform.position.x) || Mathf.Approximately(targetPos.y, transform.position.y))
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime*10);
+            if (Mathf.Approximately(targetPos.x,transform.position.x) || 
+                Mathf.Approximately(targetPos.y,transform.position.y))
             {
-                GameManager.Instance.AddCoins(Gold);               
+                GameManager.Instance.AddCoins(Gold);
+                if (gameObject.name.Contains("gold"))
+                {
+                    AudioManager.Instance.PlayAudio(ACName.Gold);
+                }
+                else if (gameObject.name.Contains("silver"))
+                {
+                    AudioManager.Instance.PlayAudio(ACName.Silver);
+                }
+                Destroy(gameObject);
                 break;
             }
         }
