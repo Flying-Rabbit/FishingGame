@@ -10,6 +10,7 @@ public class Fish : MonoBehaviour
     private FishModel fishData;
     private bool isStraight;
     private bool isDie = false;
+    private float HP;
 
     private void Awake()
     {
@@ -39,11 +40,17 @@ public class Fish : MonoBehaviour
 
     public void Init(FishModel fish, Vector3 dir, float moveSpeed, bool isStraightLine = true, float angleSpeed = 0f)
     {
+        this.HP = fish.HP;
         this.fishData = fish;
         this.moveDirection = dir;
         this.moveSpeed = moveSpeed;
         this.isStraight = isStraightLine;
         this.angleSpeed = angleSpeed;
+
+        //if (gameObject.name.Contains("yinsha"))
+        //{
+        //    Debug.Log("银沙HP：" + fishData.HP);
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,7 +60,9 @@ public class Fish : MonoBehaviour
             //销毁子弹
             Destroy(collision.gameObject);
 
+
             int damage = collision.gameObject.GetComponent<Bullet>().Damage;
+            Debug.Log("当前子弹的伤害：" + damage);
 
             //生成渔网,继承子弹80%的伤害
             GameObject web = Instantiate(FishManager.Instance.WebPrefab, gameObject.transform.position, Quaternion.identity);
@@ -74,9 +83,15 @@ public class Fish : MonoBehaviour
     {
         if (fishData != null)
         {
-            fishData.HP -= damage;
+            //if (gameObject.name.Contains("yinsha"))
+            //{
+            //    Debug.Log("当前银沙HP：" + fishData.HP);
+            //}
 
-            if (fishData.HP <= 0)
+
+            this.HP -= damage;
+
+            if (this.HP <= 0)
             {
                 isDie = true;
 

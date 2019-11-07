@@ -100,15 +100,20 @@ public class GameManager : MonoBehaviour
     }
     public void SaveGame()
     {
-        
+        PlayerPrefs.SetInt("LEVEL", GameData.Level);
+        PlayerPrefs.SetInt("EXP", GameData.Exp);
+        PlayerPrefs.SetInt("Gold", GameData.Gold);
+        PlayerPrefs.SetInt("AUDIO", GameData.AudioIsOn ? 1 : 0);
     }
 
     public void LoadGame()
     {
         GameData = new GameData();
-        GameData.Gold = 9999999;
-        GetComponent<UIManager>().Init();
-       
+        GameData.Level = PlayerPrefs.GetInt("LEVEL", 0);
+        GameData.Exp = PlayerPrefs.GetInt("EXP", 0);
+        GameData.Gold = PlayerPrefs.GetInt("Gold", 10000);
+        GameData.AudioIsOn = PlayerPrefs.GetInt("AUDIO", 1) == 1; //0：静音   1：打开声音        
+        GetComponent<UIManager>().Init();       
     }
 }
 

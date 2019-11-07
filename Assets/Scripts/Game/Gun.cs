@@ -42,9 +42,9 @@ public class Gun : MonoBehaviour
 
     private GunModel currentGunData; //当前的枪的数据
     private Transform currenBulletSpawnTrans; //当前枪发射子弹初始Transform
-    private int currentGunID;  
-    
+    private int currentGunID;
 
+    bool flag = true;
     private void Start()
     {     
         gunTrans = transform;
@@ -60,7 +60,9 @@ public class Gun : MonoBehaviour
 
         currentGunID = 0;
         InitGunByIndex(currentGunID);
-        
+
+        if (Application.platform == RuntimePlatform.Android)
+            flag = false;
     }
 
     void InitGunByIndex(int gunID)
@@ -132,8 +134,7 @@ public class Gun : MonoBehaviour
                 newBullet = Instantiate(bulletPrefab);
                 newBullet.transform.position = currenBulletSpawnTrans.position;
                 newBullet.transform.rotation = currenBulletSpawnTrans.rotation;
-                newBullet.GetComponent<Bullet>().Damage = (int)(currentGunData.DamageRate * currentGunData.BulletData.Damage);
-                Debug.Log("该子弹的伤害值为：" + newBullet.GetComponent<Bullet>().Damage);
+                newBullet.GetComponent<Bullet>().Damage = (int)(currentGunData.DamageRate * currentGunData.BulletData.Damage);               
                 AudioManager.Instance.PlayAudio(ACName.Fire);
             }
         }       
@@ -150,29 +151,37 @@ public class Gun : MonoBehaviour
         //    }       
         //}
 
-        ///windows平台
+       
         if (Input.GetMouseButton(0))
-        {
-            if (!EventSystem.current.IsPointerOverGameObject())
+        { 
+            //安卓平台 
+            if (flag == false &&　EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
             {
-                GunRoate(cameraMain.ScreenToWorldPoint(Input.mousePosition));
-                if (!isCooling)
+                return;                            
+            }
+            //windows平台
+            if (flag && EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
+            GunRoate(cameraMain.ScreenToWorldPoint(Input.mousePosition));
+            if (!isCooling)
+            {
+                GunFire();
+                timer = SHOTCD;
+                isCooling = true;
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+                if (timer <= 0f)
                 {
-                    GunFire();
-                    timer = SHOTCD;
-                    isCooling = true;
+                    isCooling = false;
                 }
-                else
-                {
-                    timer -= Time.deltaTime;
-                    if (timer <= 0f)
-                    {
-                        isCooling = false;
-                    }
-                }
-                             
-            }           
+            }
         }
+
         if (Input.GetMouseButtonUp(0))
         {
             isCooling = false;

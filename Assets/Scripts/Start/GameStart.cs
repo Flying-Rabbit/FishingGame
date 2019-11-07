@@ -52,7 +52,10 @@ public class GameStart : MonoBehaviour
     /// 初始化游戏数据
     /// </summary>
     void InitData()
-    { 
-    
+    {
+        PlayerPrefs.SetInt("LEVEL", 0);
+        PlayerPrefs.SetInt("EXP", 0);
+        PlayerPrefs.SetInt("Gold", 10000);
+        PlayerPrefs.SetInt("AUDIO", 1);
     }
 }

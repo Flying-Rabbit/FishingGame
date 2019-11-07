@@ -19,6 +19,7 @@ public class Setting : MonoBehaviour
     {
         togAudio.isOn = ison;
         GameManager.Instance.SetAudio(ison);
+        AudioManager.Instance.AudioSet(ison);
     }
 
 }

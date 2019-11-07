@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
 
     IEnumerator BigTimer()
     {
-        int bigTimer = 10;
+        int bigTimer = 250;
         txtBigTimer.gameObject.SetActive(true);
         btnReward.gameObject.SetActive(false);
         txtBigTimer.text = bigTimer.ToString();

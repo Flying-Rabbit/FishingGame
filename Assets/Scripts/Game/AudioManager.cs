@@ -13,19 +13,29 @@ public class AudioManager : MonoBehaviour
     public AudioClip fire;
     public AudioClip wave;
     public AudioClip levelUp;
-
-
+    private bool audioIsOn;
+    private AudioSource ads;
 
 
     public static AudioManager Instance;
     private void Awake()
     {
-        Instance = this;
+        Instance = this;       
+    }
+
+    private void Start()
+    {
+        ads = gameObject.GetComponent<AudioSource>();
+        audioIsOn = GameManager.Instance.GameData.AudioIsOn;
+        AudioSet(audioIsOn);
     }
 
     private Vector3 pos = new Vector3(0, 0, -45);
     public void PlayAudio(ACName ac)
     {
+        if (audioIsOn == false)
+            return;
+
         switch (ac)
         {
             case ACName.Gold:
@@ -74,10 +84,18 @@ public class AudioManager : MonoBehaviour
                 timer = 2f;
                 isCD = false;
             }
-        }
-        
+        }        
     }
 
+    public void AudioSet(bool isOn)
+    {
+        audioIsOn = isOn;
+
+        if (audioIsOn)
+            ads.Play();
+        else
+            ads.Pause();
+    }
 }
 
 public enum ACName
